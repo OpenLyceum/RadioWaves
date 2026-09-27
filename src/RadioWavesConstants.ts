@@ -8,6 +8,7 @@
  */
 
 import { Bounds2, Range, Vector2 } from "scenerystack/dot";
+import RadioWavesNamespace from "./RadioWavesNamespace.js";
 
 const RadioWavesConstants = {
   // ── Wave propagation ──────────────────────────────────────────────────────
@@ -54,6 +55,8 @@ const RadioWavesConstants = {
   // ── EMF-sensing receiver fudge factors (from emf-sensing.js) ────────────────
   EMF_SINUSOIDAL_SCALE: 0.4, // receiver displacement ÷ source's retarded displacement
 } as const;
+
+RadioWavesNamespace.register("RadioWavesConstants", RadioWavesConstants);
 
 export default RadioWavesConstants;
 
