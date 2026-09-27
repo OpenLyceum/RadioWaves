@@ -3,10 +3,6 @@ import RadioWavesNamespace from "./RadioWavesNamespace.js";
 
 const { BLACK, WHITE } = Color;
 
-function profileColor(name: string, def: Color | string, projector: Color | string): ProfileColorProperty {
-  return new ProfileColorProperty(RadioWavesNamespace, name, { default: def, projector });
-}
-
 // ── Panel fills ───────────────────────────────────────────────────────────────
 // Cool blue-tinted dark/light fills for better theme coherence.
 const PANEL_FILL_DARK = new Color(28, 32, 40);
@@ -17,71 +13,170 @@ const PANEL_STROKE_DARK = "rgba(255, 255, 255, 0.35)";
 const PANEL_STROKE_LIGHT = "rgba(0, 0, 0, 0.35)";
 
 const RadioWavesColors = {
-  backgroundColorProperty: profileColor("background", BLACK, WHITE),
-  foregroundColorProperty: profileColor("foreground", WHITE, BLACK),
+  backgroundColorProperty: new ProfileColorProperty(RadioWavesNamespace, "background", {
+    default: BLACK,
+    projector: WHITE,
+  }),
+  foregroundColorProperty: new ProfileColorProperty(RadioWavesNamespace, "foreground", {
+    default: WHITE,
+    projector: BLACK,
+  }),
 
-  panelFillProperty: profileColor("panelFill", PANEL_FILL_DARK, PANEL_FILL_LIGHT),
-  panelStrokeProperty: profileColor("panelStroke", PANEL_STROKE_DARK, PANEL_STROKE_LIGHT),
+  panelFillProperty: new ProfileColorProperty(RadioWavesNamespace, "panelFill", {
+    default: PANEL_FILL_DARK,
+    projector: PANEL_FILL_LIGHT,
+  }),
+  panelStrokeProperty: new ProfileColorProperty(RadioWavesNamespace, "panelStroke", {
+    default: PANEL_STROKE_DARK,
+    projector: PANEL_STROKE_LIGHT,
+  }),
 
   // Field visualization. Red for "force on electron", blue for "electric field".
   // Dark theme uses highly saturated values that pop against black; projector uses
   // deeper, ink-friendly tones that stay legible on white.
-  forceArrowProperty: profileColor("forceArrow", "#ff5252", "#c62828"),
-  fieldArrowProperty: profileColor("fieldArrow", "#5c8ee8", "#1a56a8"),
+  forceArrowProperty: new ProfileColorProperty(RadioWavesNamespace, "forceArrow", {
+    default: "#ff5252",
+    projector: "#c62828",
+  }),
+  fieldArrowProperty: new ProfileColorProperty(RadioWavesNamespace, "fieldArrow", {
+    default: "#5c8ee8",
+    projector: "#1a56a8",
+  }),
 
   // The transmitting/receiving electrons (rendered as outlined circles). Cyan keeps
   // them clearly distinguishable from the blue field-direction arrows.
-  electronFillProperty: profileColor("electronFill", "#29d9ff", "#0086a8"),
-  electronStrokeProperty: profileColor("electronStroke", "#7eeeff", "#005c70"),
+  electronFillProperty: new ProfileColorProperty(RadioWavesNamespace, "electronFill", {
+    default: "#29d9ff",
+    projector: "#0086a8",
+  }),
+  electronStrokeProperty: new ProfileColorProperty(RadioWavesNamespace, "electronStroke", {
+    default: "#7eeeff",
+    projector: "#005c70",
+  }),
 
   // The antenna rods. Cool gray with a subtle blue-tinted highlight.
-  antennaFillProperty: profileColor("antennaFill", "#8a96a4", "#546070"),
-  antennaStrokeProperty: profileColor("antennaStroke", "rgba(190, 220, 255, 0.5)", "rgba(0, 0, 0, 0.4)"),
+  antennaFillProperty: new ProfileColorProperty(RadioWavesNamespace, "antennaFill", {
+    default: "#8a96a4",
+    projector: "#546070",
+  }),
+  antennaStrokeProperty: new ProfileColorProperty(RadioWavesNamespace, "antennaStroke", {
+    default: "rgba(190, 220, 255, 0.5)",
+    projector: "rgba(0, 0, 0, 0.4)",
+  }),
 
   // Oscilloscope position plots. Deep navy background; the trace color matches the electron
   // (cyan/teal) since the plot shows electron position over time.
-  plotBackgroundProperty: profileColor("plotBackground", new Color(8, 12, 22), WHITE),
+  plotBackgroundProperty: new ProfileColorProperty(RadioWavesNamespace, "plotBackground", {
+    default: new Color(8, 12, 22),
+    projector: WHITE,
+  }),
   // Default grid brightened vs. the deep navy plot fill so axes/border stay readable.
-  plotGridProperty: profileColor("plotGrid", "#4a6580", "#b8c8d8"),
-  plotLineProperty: profileColor("plotLine", "#29d9ff", "#0086a8"),
+  plotGridProperty: new ProfileColorProperty(RadioWavesNamespace, "plotGrid", {
+    default: "#4a6580",
+    projector: "#b8c8d8",
+  }),
+  plotLineProperty: new ProfileColorProperty(RadioWavesNamespace, "plotLine", {
+    default: "#29d9ff",
+    projector: "#0086a8",
+  }),
 
   // ── Background scene (landscape art) ──────────────────────────────────────────
   // The hand-drawn daytime landscape painted by BackgroundSceneNode. These are representational
   // scenery colors rather than UI elements, so projector mode keeps the same values; they live here
   // (rather than hard-coded in the canvas node) so the palette is centralized and theme-able.
-  sceneSkyTopProperty: profileColor("sceneSkyTop", "#5ba8e8", "#5ba8e8"),
-  sceneSkyBottomProperty: profileColor("sceneSkyBottom", "#b0d4f5", "#b0d4f5"),
-  sceneInkProperty: profileColor("sceneInk", "#111111", "#111111"),
-  sceneStructureLightProperty: profileColor("sceneStructureLight", "#ffffff", "#ffffff"),
-  sceneMountainFarProperty: profileColor("sceneMountainFar", "#d9d9d1", "#d9d9d1"),
-  sceneMountainNearProperty: profileColor("sceneMountainNear", "#777061", "#777061"),
-  sceneHillBackProperty: profileColor("sceneHillBack", "#8a865d", "#8a865d"),
-  sceneHillFrontProperty: profileColor("sceneHillFront", "#28b038", "#28b038"),
-  sceneTreesProperty: profileColor("sceneTrees", "#1a6e2a", "#1a6e2a"),
-  sceneWireProperty: profileColor("sceneWire", "#d00000", "#d00000"),
-  sceneTransmitterBuildingProperty: profileColor("sceneTransmitterBuilding", "#d0b218", "#d0b218"),
-  sceneReceiverRoofProperty: profileColor("sceneReceiverRoof", "#555555", "#555555"),
-  sceneReceiverBuildingProperty: profileColor("sceneReceiverBuilding", "#f47c00", "#f47c00"),
-  sceneAntennaArtFillProperty: profileColor("sceneAntennaArtFill", "#a4aab0", "#a4aab0"),
-  sceneAntennaArtHighlightProperty: profileColor("sceneAntennaArtHighlight", "#e7ecef", "#e7ecef"),
+  sceneSkyTopProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneSkyTop", {
+    default: "#5ba8e8",
+    projector: "#5ba8e8",
+  }),
+  sceneSkyBottomProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneSkyBottom", {
+    default: "#b0d4f5",
+    projector: "#b0d4f5",
+  }),
+  sceneInkProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneInk", {
+    default: "#111111",
+    projector: "#111111",
+  }),
+  sceneStructureLightProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneStructureLight", {
+    default: "#ffffff",
+    projector: "#ffffff",
+  }),
+  sceneMountainFarProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneMountainFar", {
+    default: "#d9d9d1",
+    projector: "#d9d9d1",
+  }),
+  sceneMountainNearProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneMountainNear", {
+    default: "#777061",
+    projector: "#777061",
+  }),
+  sceneHillBackProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneHillBack", {
+    default: "#8a865d",
+    projector: "#8a865d",
+  }),
+  sceneHillFrontProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneHillFront", {
+    default: "#28b038",
+    projector: "#28b038",
+  }),
+  sceneTreesProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneTrees", {
+    default: "#1a6e2a",
+    projector: "#1a6e2a",
+  }),
+  sceneWireProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneWire", {
+    default: "#d00000",
+    projector: "#d00000",
+  }),
+  sceneTransmitterBuildingProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneTransmitterBuilding", {
+    default: "#d0b218",
+    projector: "#d0b218",
+  }),
+  sceneReceiverRoofProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneReceiverRoof", {
+    default: "#555555",
+    projector: "#555555",
+  }),
+  sceneReceiverBuildingProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneReceiverBuilding", {
+    default: "#f47c00",
+    projector: "#f47c00",
+  }),
+  sceneAntennaArtFillProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneAntennaArtFill", {
+    default: "#a4aab0",
+    projector: "#a4aab0",
+  }),
+  sceneAntennaArtHighlightProperty: new ProfileColorProperty(RadioWavesNamespace, "sceneAntennaArtHighlight", {
+    default: "#e7ecef",
+    projector: "#e7ecef",
+  }),
 
   // Fleet-standard aliases for shared Panel + ButtonOptions modules.
-  panelBackgroundColorProperty: profileColor("panelBackground", PANEL_FILL_DARK, PANEL_FILL_LIGHT),
-  panelBorderColorProperty: profileColor("panelBorder", PANEL_STROKE_DARK, PANEL_STROKE_LIGHT),
-  textColorProperty: profileColor("text", WHITE, BLACK),
+  panelBackgroundColorProperty: new ProfileColorProperty(RadioWavesNamespace, "panelBackground", {
+    default: PANEL_FILL_DARK,
+    projector: PANEL_FILL_LIGHT,
+  }),
+  panelBorderColorProperty: new ProfileColorProperty(RadioWavesNamespace, "panelBorder", {
+    default: PANEL_STROKE_DARK,
+    projector: PANEL_STROKE_LIGHT,
+  }),
+  textColorProperty: new ProfileColorProperty(RadioWavesNamespace, "text", { default: WHITE, projector: BLACK }),
 
   // ── Light control surfaces ───────────────────────────────────────────────────
   // White chrome (combo boxes, flat push buttons, editable input fields) stays light
   // in both profiles; its text stays dark.
 
   /** Fill of light control surfaces: combo-box button/list, editable input fields. */
-  controlSurfaceColorProperty: profileColor("controlSurface", "#ffffff", "#ffffff"),
+  controlSurfaceColorProperty: new ProfileColorProperty(RadioWavesNamespace, "controlSurface", {
+    default: "#ffffff",
+    projector: "#ffffff",
+  }),
 
   /** Fill of a disabled control surface (grayed-out editable input field). */
-  controlSurfaceDisabledColorProperty: profileColor("controlSurfaceDisabled", "#cccccc", "#cccccc"),
+  controlSurfaceDisabledColorProperty: new ProfileColorProperty(RadioWavesNamespace, "controlSurfaceDisabled", {
+    default: "#cccccc",
+    projector: "#cccccc",
+  }),
 
   /** Text on light control surfaces: combo items, flat-button labels, field values, preferences. */
-  controlSurfaceTextColorProperty: profileColor("controlSurfaceText", "#1a1a1a", "#1a1a1a"),
+  controlSurfaceTextColorProperty: new ProfileColorProperty(RadioWavesNamespace, "controlSurfaceText", {
+    default: "#1a1a1a",
+    projector: "#1a1a1a",
+  }),
 };
 
 export default RadioWavesColors;
