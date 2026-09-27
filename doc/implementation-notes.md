@@ -86,4 +86,4 @@ CI gate: `npm run lint && npm run check && npm run build`.
 
 ## Multi-screen simulations
 
-Single-screen. See fleet `doc/multi-screen.md` if extended.
+Single-screen. To add screens, follow [SceneryStackTemplate `doc/multi-screen.md`](https://github.com/OpenLyceum/SceneryStackTemplate/blob/main/doc/multi-screen.md).
