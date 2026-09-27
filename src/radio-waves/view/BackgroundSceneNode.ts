@@ -17,7 +17,7 @@ import type { RadioWavesModel } from "../model/RadioWavesModel.js";
 
 type ModelPoint = { x: number; y: number };
 
-export default class BackgroundSceneNode extends CanvasNode {
+export class BackgroundSceneNode extends CanvasNode {
   private readonly model: RadioWavesModel;
   private readonly modelViewTransform: ModelViewTransform2;
   private readonly sceneBounds: Bounds2;

@@ -31,7 +31,7 @@ const TEXT_MAX_WIDTH = WIDTH - 16;
 const GRID_LINE_WIDTH = 1;
 const TRACE_LINE_WIDTH = 1.5;
 
-export default class ElectronPositionPlotNode extends Node {
+export class ElectronPositionPlotNode extends Node {
   private readonly trace: PlotTraceNode;
 
   public constructor(

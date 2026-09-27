@@ -22,7 +22,7 @@ const PANEL_Y_MARGIN = 10;
 const ICON_LABEL_SPACING = 8;
 const TITLE_ITEM_SPACING = 8;
 
-export default class LegendNode extends Panel {
+export class LegendNode extends Panel {
   public constructor() {
     const strings = StringManager.getInstance().getLegendStrings();
 

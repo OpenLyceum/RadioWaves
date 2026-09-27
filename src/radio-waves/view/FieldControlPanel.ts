@@ -24,7 +24,7 @@ const PANEL_CORNER_RADIUS = 6;
 const PANEL_X_MARGIN = 12;
 const PANEL_Y_MARGIN = 10;
 
-export default class FieldControlPanel extends Panel {
+export class FieldControlPanel extends Panel {
   public constructor(model: RadioWavesModel) {
     const stringManager = StringManager.getInstance();
     const displayStrings = stringManager.getFieldDisplayTypeStrings();

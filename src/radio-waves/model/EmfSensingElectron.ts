@@ -13,10 +13,10 @@
 
 import { Vector2, Vector2Property } from "scenerystack/dot";
 import Constants from "../../RadioWavesConstants.js";
-import type Antenna from "./Antenna.js";
-import type Electron from "./Electron.js";
+import type { Antenna } from "./Antenna.js";
+import type { Electron } from "./Electron.js";
 
-export default class EmfSensingElectron {
+export class EmfSensingElectron {
   public readonly positionProperty: Vector2Property;
   public readonly startPosition: Vector2;
 

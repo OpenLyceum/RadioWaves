@@ -9,7 +9,7 @@
 
 import type { Vector2 } from "scenerystack/dot";
 
-export default class Antenna {
+export class Antenna {
   public readonly end1: Vector2;
   public readonly end2: Vector2;
   public readonly maxX: number;

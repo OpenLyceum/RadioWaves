@@ -10,12 +10,12 @@
 import type { ModelViewTransform2 } from "scenerystack/phetcommon";
 import { Line, Node } from "scenerystack/scenery";
 import RadioWavesColors from "../../RadioWavesColors.js";
-import type Antenna from "../model/Antenna.js";
+import type { Antenna } from "../model/Antenna.js";
 
 const ROD_LINE_WIDTH = 5;
 const HIGHLIGHT_LINE_WIDTH = 2;
 
-export default class AntennaNode extends Node {
+export class AntennaNode extends Node {
   public constructor(antenna: Antenna, modelViewTransform: ModelViewTransform2) {
     super();
 

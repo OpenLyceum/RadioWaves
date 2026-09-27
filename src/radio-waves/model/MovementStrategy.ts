@@ -9,7 +9,7 @@
 
 import { Vector2 } from "scenerystack/dot";
 import Constants from "../../RadioWavesConstants.js";
-import type Electron from "./Electron.js";
+import type { Electron } from "./Electron.js";
 
 export type MovementMode = "manual" | "oscillate";
 

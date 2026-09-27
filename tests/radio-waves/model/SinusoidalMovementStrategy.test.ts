@@ -1,6 +1,6 @@
 import { Vector2 } from "scenerystack/dot";
 import { describe, expect, it } from "vitest";
-import Electron from "../../../src/radio-waves/model/Electron.js";
+import { Electron } from "../../../src/radio-waves/model/Electron.js";
 import { SinusoidalMovementStrategy } from "../../../src/radio-waves/model/MovementStrategy.js";
 
 describe("SinusoidalMovementStrategy", () => {

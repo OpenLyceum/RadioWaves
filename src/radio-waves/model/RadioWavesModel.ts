@@ -18,9 +18,9 @@ import { TimeModel } from "../../common/TimeModel.js";
 import type { RadioWavesPreferencesModel } from "../../preferences/RadioWavesPreferencesModel.js";
 import radioWavesQueryParameters from "../../preferences/radioWavesQueryParameters.js";
 import Constants from "../../RadioWavesConstants.js";
-import Antenna from "./Antenna.js";
-import Electron from "./Electron.js";
-import EmfSensingElectron from "./EmfSensingElectron.js";
+import { Antenna } from "./Antenna.js";
+import { Electron } from "./Electron.js";
+import { EmfSensingElectron } from "./EmfSensingElectron.js";
 import { ManualMovementStrategy, type MovementMode, SinusoidalMovementStrategy } from "./MovementStrategy.js";
 
 export type FieldDisplayType = "curveWithVectors" | "curve" | "fullField" | "none";

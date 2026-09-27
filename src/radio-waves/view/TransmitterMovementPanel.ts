@@ -28,7 +28,7 @@ const PANEL_Y_MARGIN = 10;
 const SLIDER_DELTA = 1;
 const NUMBER_DECIMAL_PLACES = 0;
 
-export default class TransmitterMovementPanel extends Panel {
+export class TransmitterMovementPanel extends Panel {
   public constructor(model: RadioWavesModel) {
     const strings = StringManager.getInstance().getTransmitterMovementStrings();
     const a11y = StringManager.getInstance().getA11yStrings();

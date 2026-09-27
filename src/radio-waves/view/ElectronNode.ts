@@ -21,7 +21,7 @@ type ElectronNodeOptions = {
   onDrag?: (modelPoint: Vector2) => void;
 };
 
-export default class ElectronNode extends Node {
+export class ElectronNode extends Node {
   public constructor(
     positionProperty: ReadOnlyProperty<Vector2>,
     modelViewTransform: ModelViewTransform2,

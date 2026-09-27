@@ -22,15 +22,15 @@ import { FLAT_RESET_ALL_BUTTON_OPTIONS } from "../../common/RadioWavesButtonOpti
 import { StringManager } from "../../i18n/StringManager.js";
 import RadioWavesColors from "../../RadioWavesColors.js";
 import type { RadioWavesModel } from "../model/RadioWavesModel.js";
-import AntennaNode from "./AntennaNode.js";
-import BackgroundSceneNode from "./BackgroundSceneNode.js";
-import ElectronNode from "./ElectronNode.js";
-import ElectronPositionPlotNode from "./ElectronPositionPlotNode.js";
-import FieldControlPanel from "./FieldControlPanel.js";
-import FieldLatticeNode from "./FieldLatticeNode.js";
-import LegendNode from "./LegendNode.js";
+import { AntennaNode } from "./AntennaNode.js";
+import { BackgroundSceneNode } from "./BackgroundSceneNode.js";
+import { ElectronNode } from "./ElectronNode.js";
+import { ElectronPositionPlotNode } from "./ElectronPositionPlotNode.js";
+import { FieldControlPanel } from "./FieldControlPanel.js";
+import { FieldLatticeNode } from "./FieldLatticeNode.js";
+import { LegendNode } from "./LegendNode.js";
 import { RadioWavesScreenSummaryContent } from "./RadioWavesScreenSummaryContent.js";
-import TransmitterMovementPanel from "./TransmitterMovementPanel.js";
+import { TransmitterMovementPanel } from "./TransmitterMovementPanel.js";
 
 type RadioWavesScreenViewOptions = ScreenViewOptions & { tandem: Tandem };
 

@@ -12,7 +12,7 @@
 
 import { Vector2, Vector2Property } from "scenerystack/dot";
 import Constants from "../../RadioWavesConstants.js";
-import type Antenna from "./Antenna.js";
+import type { Antenna } from "./Antenna.js";
 import {
   ManualMovementStrategy,
   type MovementMode,
@@ -23,7 +23,7 @@ import {
 // History indices shifted per recorded frame (≈ propagation speed).
 const STEP_SIZE = Math.floor(Constants.SPEED_OF_LIGHT);
 
-export default class Electron {
+export class Electron {
   public readonly positionProperty: Vector2Property;
   public readonly startPosition: Vector2;
 

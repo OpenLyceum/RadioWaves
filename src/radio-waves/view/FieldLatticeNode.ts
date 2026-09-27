@@ -37,7 +37,7 @@ const FULL_FIELD_ARROW_HEAD_WIDTH = 6;
 const FULL_FIELD_ARROW_HEAD_LENGTH = 8;
 const MIN_ARROW_LENGTH = 1e-6; // below this an arrow is skipped (avoids divide-by-zero)
 
-export default class FieldLatticeNode extends CanvasNode {
+export class FieldLatticeNode extends CanvasNode {
   private readonly model: RadioWavesModel;
   private readonly modelViewTransform: ModelViewTransform2;
   private readonly minXModel: number;
