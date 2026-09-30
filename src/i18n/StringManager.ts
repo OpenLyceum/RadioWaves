@@ -92,6 +92,10 @@ export class StringManager {
     return stringProperties.legend;
   }
 
+  public getKeyboardHelpStrings() {
+    return stringProperties.keyboardHelp;
+  }
+
   /** Simulation-specific preference labels shown in Preferences → Simulation. */
   public getPreferences() {
     return stringProperties.preferences;

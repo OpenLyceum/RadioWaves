@@ -62,6 +62,13 @@
       "electronPositions": "Show electron position plots"
     }
   },
+  "keyboardHelp": {
+    "electronHeading": "Transmitter electron",
+    "move": "Move the electron",
+    "moveDescription": "Move the transmitting electron up or down.",
+    "moveSlower": "Move in smaller steps",
+    "moveSlowerDescription": "Hold Shift to move the electron in smaller steps."
+  },
   "preferences": {
     "title": "Simulation",
     "showPositionPlots": "Show Position Plots"

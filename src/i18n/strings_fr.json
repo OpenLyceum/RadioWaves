@@ -62,6 +62,13 @@
       "electronPositions": "Afficher les graphiques de position des électrons"
     }
   },
+  "keyboardHelp": {
+    "electronHeading": "Électron émetteur",
+    "move": "Déplacer l'électron",
+    "moveDescription": "Déplacez l'électron émetteur vers le haut ou le bas.",
+    "moveSlower": "Déplacer par plus petits pas",
+    "moveSlowerDescription": "Maintenez Maj pour déplacer l'électron par plus petits pas."
+  },
   "preferences": {
     "title": "Simulation",
     "showPositionPlots": "Afficher les graphiques de position"
