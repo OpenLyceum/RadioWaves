@@ -152,7 +152,7 @@ export class SinusoidalMovementStrategy implements MovementStrategy {
   }
 
   public getVelocity(): Vector2 {
-    this.velocity.y = this.omega * Math.cos(this.omega * this.runningTime);
+    this.velocity.y = this.amplitude * this.omega * Math.cos(this.omega * this.runningTime);
     return this.velocity;
   }
 

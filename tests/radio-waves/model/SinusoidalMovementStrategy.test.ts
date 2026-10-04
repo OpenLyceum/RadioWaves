@@ -46,3 +46,21 @@ describe("SinusoidalMovementStrategy", () => {
     expect(electron.position.y).toBeCloseTo(start.y, 4);
   });
 });
+
+// Compare with the derivative of the actual position, independently of the velocity formula.
+describe("sinusoidal kinematics", () => {
+  it.each([0, 1, 50])("velocity differentiates position at amplitude %s", (amplitude) => {
+    const electron = new Electron(new Vector2(100, 200));
+    const strategy = new SinusoidalMovementStrategy(electron, 0.7, amplitude);
+    const time = 0.13;
+    const epsilon = 1e-6;
+    strategy.setRunningTime(time - epsilon);
+    strategy.update(0);
+    const before = electron.position.y;
+    strategy.setRunningTime(time + epsilon);
+    strategy.update(0);
+    const after = electron.position.y;
+    strategy.setRunningTime(time);
+    expect(strategy.getVelocity().y).toBeCloseTo((after - before) / (2 * epsilon), 5);
+  });
+});
