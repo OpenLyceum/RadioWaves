@@ -240,6 +240,11 @@ export class Electron {
   }
 
   public setMovementStrategy(movementStrategy: MovementStrategy): void {
+    if (this.movementStrategy !== movementStrategy) {
+      // A queued oscillator edit must not survive a later mode change.
+      this.changeFreq = false;
+      this.changeAmplitude = false;
+    }
     this.movementStrategy = movementStrategy;
   }
 

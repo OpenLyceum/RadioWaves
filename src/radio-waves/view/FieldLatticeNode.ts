@@ -80,11 +80,11 @@ export class FieldLatticeNode extends CanvasNode {
     }
 
     // Repaint on theme changes (per-frame repaints during play are driven by the screen view).
-    RadioWavesColors.forceArrowProperty.link(() => this.invalidatePaint());
-    RadioWavesColors.fieldArrowProperty.link(() => this.invalidatePaint());
-    model.fieldDisplayTypeProperty.link(() => this.invalidatePaint());
-    model.fieldSenseProperty.link(() => this.invalidatePaint());
-    model.fieldDisplayedProperty.link(() => this.invalidatePaint());
+    RadioWavesColors.forceArrowProperty.link(() => this.invalidatePaint(), { disposer: this });
+    RadioWavesColors.fieldArrowProperty.link(() => this.invalidatePaint(), { disposer: this });
+    model.fieldDisplayTypeProperty.link(() => this.invalidatePaint(), { disposer: this });
+    model.fieldSenseProperty.link(() => this.invalidatePaint(), { disposer: this });
+    model.fieldDisplayedProperty.link(() => this.invalidatePaint(), { disposer: this });
   }
 
   /** Called by the screen view every animation frame so the field tracks the moving electron. */

@@ -21,6 +21,14 @@ describe("SinusoidalMovementStrategy", () => {
     expect(electron.position.y).toBeCloseTo(start.y + amplitude, 4);
   });
 
+  it("scales velocity with amplitude, including a stationary zero-amplitude source", () => {
+    const electron = new Electron(start.copy());
+    const strategy = new SinusoidalMovementStrategy(electron, frequency, amplitude);
+    expect(strategy.getVelocity().y).toBeCloseTo(amplitude * 2 * Math.PI * frequency);
+    strategy.setAmplitude(0);
+    expect(strategy.getVelocity().y).toBe(0);
+  });
+
   it("reset clears running time and oscillation offset", () => {
     const electron = new Electron(start.copy());
     electron.recordingHistory = false;

@@ -77,6 +77,11 @@ export class ElectronPositionPlotNode extends Node {
     this.children = [background, titleText, plotBackground, this.trace, axisLabel];
   }
 
+  public override dispose(): void {
+    this.trace.dispose();
+    super.dispose();
+  }
+
   /** Push a new sample and repaint (called each frame by the screen view while plots are shown). */
   public update(): void {
     this.trace.update();
@@ -102,8 +107,8 @@ class PlotTraceNode extends CanvasNode {
     // Map a displacement of ±halfRange to ±half the plot height.
     this.yScale = halfRange > 0 ? PLOT_HEIGHT / 2 / halfRange : 0;
 
-    RadioWavesColors.plotLineProperty.link(() => this.invalidatePaint());
-    RadioWavesColors.plotGridProperty.link(() => this.invalidatePaint());
+    RadioWavesColors.plotLineProperty.link(() => this.invalidatePaint(), { disposer: this });
+    RadioWavesColors.plotGridProperty.link(() => this.invalidatePaint(), { disposer: this });
   }
 
   public update(): void {

@@ -97,6 +97,13 @@ export class RadioWavesModel implements TModel {
     );
 
     this.movementModeProperty.link((mode) => {
+      if (mode === "manual") {
+        // Hold the current position instead of returning to the last manual drag.
+        this.manualStrategy.reset(this.transmittingElectron.position);
+      } else {
+        this.sinusoidalStrategy.setFrequency(this.frequencyProperty.value * Constants.FREQUENCY_SCALE);
+        this.sinusoidalStrategy.setAmplitude(this.amplitudeProperty.value);
+      }
       this.transmittingElectron.setMovementStrategy(
         mode === "oscillate" ? this.sinusoidalStrategy : this.manualStrategy,
       );
