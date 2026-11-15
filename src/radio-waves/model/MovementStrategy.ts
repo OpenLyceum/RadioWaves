@@ -9,7 +9,7 @@
 
 import { Vector2 } from "scenerystack/dot";
 import Constants from "../../RadioWavesConstants.js";
-import type { Electron } from "./Electron.js";
+import type { ElectronPosition } from "./ElectronPosition.js";
 
 export type MovementMode = "manual" | "oscillate";
 
@@ -45,7 +45,7 @@ function median(values: readonly number[], window: number): number[] {
 export class ManualMovementStrategy implements MovementStrategy {
   public readonly mode = "manual";
 
-  private readonly electron: Electron;
+  private readonly electron: ElectronPosition;
   private readonly position: Vector2;
   private readonly velocity: Vector2;
 
@@ -55,7 +55,7 @@ export class ManualMovementStrategy implements MovementStrategy {
   private yAccHistory: number[];
   private accelerationAvg = 0;
 
-  public constructor(electron: Electron) {
+  public constructor(electron: ElectronPosition) {
     this.electron = electron;
     this.position = electron.position.copy();
     this.velocity = new Vector2(0, 0);
@@ -127,7 +127,7 @@ export class ManualMovementStrategy implements MovementStrategy {
 export class SinusoidalMovementStrategy implements MovementStrategy {
   public readonly mode = "oscillate";
 
-  private readonly electron: Electron;
+  private readonly electron: ElectronPosition;
   private frequency: number;
   private amplitude: number;
   private omega: number;
@@ -135,7 +135,7 @@ export class SinusoidalMovementStrategy implements MovementStrategy {
   private readonly velocity = new Vector2(0, 0);
   private readonly nextPosition = new Vector2(0, 0);
 
-  public constructor(electron: Electron, frequency: number, amplitude: number) {
+  public constructor(electron: ElectronPosition, frequency: number, amplitude: number) {
     this.electron = electron;
     this.frequency = frequency;
     this.amplitude = amplitude;
