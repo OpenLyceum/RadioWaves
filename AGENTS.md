@@ -47,6 +47,7 @@ JSON, via `StringManager.getA11yStrings()`.
 
 ## Compliance carve-outs
 
+- `.github/workflows/ci.yml`: `unused-mode: advisory` until both Knip default and production baselines are reviewed and cleared ([Baton/doc/knip.md](https://github.com/OpenLyceum/Baton/blob/main/doc/knip.md)).
 - **Hardcoded colors:** canvas gradient stops in `BackgroundSceneNode.ts` (sun/sky art) — procedural scene painting via Canvas 2D `createRadialGradient`, not `ProfileColorProperty` UI chrome.
 
 ## Testing
