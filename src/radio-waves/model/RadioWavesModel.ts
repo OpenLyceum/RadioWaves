@@ -53,7 +53,7 @@ export class RadioWavesModel implements TModel {
   });
   public readonly showPositionPlotsProperty = new BooleanProperty(radioWavesQueryParameters.showPositionPlots);
   /** Play/pause clock — starts playing (continuous animation). */
-  public readonly timer = new TimeModel(true);
+  public readonly timer = new TimeModel({ initiallyPlaying: true });
 
   // Fires once per fixed physics slice, so views can sample at the constant model cadence.
   public readonly steppedEmitter = new Emitter();
