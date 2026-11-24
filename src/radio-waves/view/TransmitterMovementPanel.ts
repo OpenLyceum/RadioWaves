@@ -7,6 +7,7 @@
  */
 
 import type { ReadOnlyProperty } from "scenerystack";
+import { roundSymmetric } from "scenerystack/dot";
 import { Text, VBox } from "scenerystack/scenery";
 import { NumberControl, PhetFont } from "scenerystack/scenery-phet";
 import { AquaRadioButtonGroup, Panel } from "scenerystack/sun";
@@ -53,7 +54,7 @@ export class TransmitterMovementPanel extends Panel {
     const numberControlOptions = {
       titleNodeOptions: { font: CONTROL_FONT, fill: RadioWavesColors.foregroundColorProperty },
       numberDisplayOptions: { textOptions: { font: CONTROL_FONT }, decimalPlaces: NUMBER_DECIMAL_PLACES },
-      sliderOptions: { constrainValue: (value: number) => Math.round(value) },
+      sliderOptions: { constrainValue: (value: number) => roundSymmetric(value) },
       delta: SLIDER_DELTA,
     };
 
