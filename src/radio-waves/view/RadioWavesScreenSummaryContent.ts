@@ -10,6 +10,7 @@
  * SceneryStackTemplate/SimScreenSummaryContent.ts.
  */
 import { DerivedProperty } from "scenerystack/axon";
+import { roundSymmetric } from "scenerystack/dot";
 import { StringUtils } from "scenerystack/phetcommon";
 import { ScreenSummaryContent } from "scenerystack/sim";
 import { StringManager } from "../../i18n/StringManager.js";
@@ -23,8 +24,8 @@ export class RadioWavesScreenSummaryContent extends ScreenSummaryContent {
       [a11y.currentDetailsStringProperty, model.frequencyProperty, model.amplitudeProperty],
       (template, frequency, amplitude) =>
         StringUtils.fillIn(template, {
-          frequency: Math.round(frequency),
-          amplitude: Math.round(amplitude),
+          frequency: roundSymmetric(frequency),
+          amplitude: roundSymmetric(amplitude),
         }),
     );
 
